@@ -6,6 +6,7 @@ import Events from "./pages/Events";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import logo from "./images/KEBlogo_full.png";
+import EventPage from './pages/EventPage'
 
 export default function App() {
   return (
@@ -52,10 +53,23 @@ export default function App() {
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/events" element={<Events />} />
-      </Routes>
+				<Route
+					path="/"
+					element={<Home />}
+				/>
+				<Route
+					path="/about"
+					element={<About />}
+				/>
+				<Route
+					path="/events"
+					element={<Events />}
+				/>
+				<Route
+					path="/events/:eventId"
+					element={<EventPage />}
+				/>
+			</Routes>
     </div>
   );
 }

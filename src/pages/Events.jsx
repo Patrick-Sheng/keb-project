@@ -1,7 +1,39 @@
+import { Routes, Route, Link } from 'react-router-dom'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import { eventMetadata } from '../util/eventsMetadata'
+import { Breadcrumb } from 'react-bootstrap'
+
 const Events = () => {
 	return (
 		<>
-			<h1> This the events page</h1>
+			<Container>
+				<Breadcrumb className="mt-3 fs-5">
+					<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+					<Breadcrumb.Item active>Events</Breadcrumb.Item>
+				</Breadcrumb>
+				<Row>
+					{Object.entries(eventMetadata).map(
+						([key, value]) => {
+							return (
+								<Col
+									xs={6}
+									md={4}
+								>
+									<Link to={`/events/${key}`}>
+										<Image
+											src={value.image}
+											thumbnail
+										/>
+									</Link>
+								</Col>
+							)
+						}
+					)}
+				</Row>
+			</Container>
 		</>
 	)
 }

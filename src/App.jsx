@@ -9,6 +9,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import { LinkContainer } from 'react-router-bootstrap'
 import logo from './images/keb_logo.png'
 import './App.css'
+import EventPage from './pages/EventPage'
 
 function App() {
 	return (
@@ -59,6 +60,10 @@ function App() {
 				<Route
 					path="/events"
 					element={<Events />}
+				/>
+				<Route
+					path="/events/:eventId"
+					element={<EventPage />}
 				/>
 			</Routes>
 		</div>

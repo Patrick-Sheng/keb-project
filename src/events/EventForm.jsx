@@ -1,0 +1,60 @@
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image'
+import Container from 'react-bootstrap/Container'
+import '../Events.css'
+import { Breadcrumb } from 'react-bootstrap'
+
+const EventForm = ({
+	image,
+	title,
+	paragraph,
+	formLink,
+}) => {
+	return (
+		<>
+			<Container>
+				<Breadcrumb className="mt-3 fs-5">
+					<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+					<Breadcrumb.Item href="/events">
+						Events
+					</Breadcrumb.Item>
+					<Breadcrumb.Item active>
+						{' '}
+						{title}{' '}
+					</Breadcrumb.Item>
+				</Breadcrumb>
+				<Row>
+					<Col className="pb-5">
+						<Image
+							style={{ border: '4px solid black' }}
+							src={image}
+							className="d-block mx-auto"
+							fluid
+						/>
+					</Col>
+					<Col
+						xs={6}
+						className="text-center pb-5"
+					>
+						<h1 className="fw-bold event-text-title">
+							{title}
+						</h1>
+						<p className="event-text-paragraph">
+							{paragraph}
+						</p>
+						<a
+							href={formLink}
+							class="btn btn-primary btn-lg"
+						>
+							{' '}
+							Sign Up{' '}
+						</a>
+					</Col>
+				</Row>
+			</Container>
+		</>
+	)
+}
+
+export default EventForm

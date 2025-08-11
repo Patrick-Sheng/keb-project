@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import { eventMetadata } from '../util/eventsMetadata'
 import { Breadcrumb } from 'react-bootstrap'
+import Footer from "../components/Footer";
 
 const Events = () => {
 	return (
@@ -34,6 +35,7 @@ const Events = () => {
 					)}
 				</Row>
 			</Container>
+      <Footer></Footer>
 		</>
 	)
 }

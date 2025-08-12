@@ -4,6 +4,7 @@ import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
 import '../Events.css'
 import { Breadcrumb } from 'react-bootstrap'
+import '../EventForm.css'
 
 const EventForm = ({
 	image,
@@ -15,7 +16,6 @@ const EventForm = ({
 		<>
 			<Container>
 				<Breadcrumb className="mt-3 fs-5">
-					<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
 					<Breadcrumb.Item href="/events">
 						Events
 					</Breadcrumb.Item>
@@ -27,22 +27,25 @@ const EventForm = ({
 				<Row>
 					<Col className="pb-5">
 						<Image
-							style={{ border: '4px solid black' }}
 							src={image}
 							className="d-block mx-auto"
 							fluid
+							thumbnail
 						/>
 					</Col>
 					<Col
 						xs={6}
+						md={7}
 						className="text-center pb-5"
 					>
 						<h1 className="fw-bold event-text-title">
 							{title}
 						</h1>
+						<div className="text-box">
 						<p className="event-text-paragraph">
 							{paragraph}
 						</p>
+						</div>
 						<a
 							href={formLink}
 							class="btn btn-primary btn-lg"
@@ -50,6 +53,12 @@ const EventForm = ({
 							{' '}
 							Sign Up{' '}
 						</a>
+						<Row>
+							<Col>
+								<div class="background">
+								</div>
+							</Col>
+						</Row>
 					</Col>
 				</Row>
 			</Container>

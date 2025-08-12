@@ -1,11 +1,30 @@
 .event-text-paragraph {
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .event-text-title {
-	font-size: 50px;
+
+	font-size: 45px;
 }
 
 .card-img {
 	width: 100%;
+}
+
+.event-box {
+	width: '420px';
+	height: '420px';
+	object-Fit: 'fill';
+	margin-bottom: 3vh;
+}
+
+.breadcrumb a {
+	text-decoration: none;
+}
+
+.text-box {
+	width:30vw;
+	margin-left:10vh;
+	margin-top:5vh;
+	margin-bottom:3vh;
 }

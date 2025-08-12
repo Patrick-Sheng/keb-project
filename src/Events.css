@@ -1,5 +1,6 @@
 .event-text-paragraph {
 	font-size: 25px;
+	margin-bottom:3vh;
 }
 
 .event-text-title {
@@ -15,7 +16,7 @@
 	width: '420px';
 	height: '420px';
 	object-Fit: 'fill';
-	margin-bottom: 3vh;
+	margin-bottom:3vh;
 }
 
 .breadcrumb a {
@@ -24,7 +25,8 @@
 
 .text-box {
 	width:30vw;
-	margin-left:10vh;
+	margin-left:auto;
+	margin-right:auto;
 	margin-top:5vh;
-	margin-bottom:3vh;
+	background-color:grey;
 }

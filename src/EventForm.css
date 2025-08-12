@@ -1,9 +1,20 @@
+.event-text-block {
+    width:100%;
+    height:60vh;
+    background-color:lightblue;
+}
+
 .background {
-    margin-top:3vh;
     width:75vh;
-    height:31vh;
+    height:36vh;
+    margin-bottom:0%;
     background-color:grey;
 }
-.recommend-title {
+.event-text-only {
+    height:30vh;
+    width:100%;
+    background-color: antiquewhite;
+}
+/*.recommend-title {
 
 }

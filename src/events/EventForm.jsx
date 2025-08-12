@@ -28,6 +28,10 @@ const EventForm = ({
 					<Col className="pb-5">
 						<Image
 							src={image}
+							style={{
+								height: '60vh',
+								objectFit: 'fill'
+							}}
 							className="d-block mx-auto"
 							fluid
 							thumbnail
@@ -38,27 +42,31 @@ const EventForm = ({
 						md={7}
 						className="text-center pb-5"
 					>
-						<h1 className="fw-bold event-text-title">
-							{title}
-						</h1>
-						<div className="text-box">
-						<p className="event-text-paragraph">
-							{paragraph}
-						</p>
-						</div>
-						<a
-							href={formLink}
-							class="btn btn-primary btn-lg"
-						>
-							{' '}
-							Sign Up{' '}
-						</a>
-						<Row>
-							<Col>
-								<div class="background">
+						<div className='event-text-block'>
+							<div className='event-text-only'>
+								<h1 className="fw-bold event-text-title">
+									{title}
+								</h1>
+								<div className="text-box">
+								<p className="event-text-paragraph">
+									{paragraph}
+								</p>
+								<a
+									href={formLink}
+									class="btn btn-primary btn-lg"
+								>
+									{' '}
+									Sign Up{' '}
+								</a>
 								</div>
-							</Col>
-						</Row>
+							</div>
+							<Row>
+								<Col>
+									<div class="background">
+									</div>
+								</Col>
+							</Row>
+						</div>
 					</Col>
 				</Row>
 			</Container>

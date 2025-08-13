@@ -20,7 +20,7 @@ const EventPage = () => {
 				paragraph={body}
 				formLink={link}
 			/>
-			<div className="third-background text-white">
+			<div className="third-background text-white" style={{marginTop: '0.9vh'}}>
 				<Container>
 					<Row>
 						<Col

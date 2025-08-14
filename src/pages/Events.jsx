@@ -5,17 +5,17 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import { eventMetadata } from '../util/eventsMetadata'
 import { Breadcrumb } from 'react-bootstrap'
+import Footer from "../components/Footer";
 
 const Events = () => {
 	return (
 		<>
 			<Container>
 				<Breadcrumb className="mt-3 fs-5">
-					<Breadcrumb.Item href="/">Home</Breadcrumb.Item>
 					<Breadcrumb.Item active>Events</Breadcrumb.Item>
 				</Breadcrumb>
 				<Row>
-					{Object.entries(eventMetadata).map(
+					{Object.entries(eventMetadata).reverse().map(
 						([key, value]) => {
 							return (
 								<Col
@@ -23,7 +23,12 @@ const Events = () => {
 									md={4}
 								>
 									<Link to={`/events/${key}`}>
-										<Image
+										<Image className="event-box"
+											style={{
+												width: '420px',
+												height: '420px',
+												objectFit: 'fill'
+											}}
 											src={value.image}
 											thumbnail
 										/>
@@ -34,6 +39,7 @@ const Events = () => {
 					)}
 				</Row>
 			</Container>
+      <Footer></Footer>
 		</>
 	)
 }

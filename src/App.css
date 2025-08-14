@@ -1,20 +1,19 @@
+/* App.css */
+.app-container {
+  min-height: 100vh;
+  background: radial-gradient(
+      1200px 600px at 80% -20%,
+      rgba(68, 189, 240, 0.15) 0%,
+      rgba(68, 189, 240, 0) 60%
+    ),
+    #0b1b34;
+}
+
 .custom-navbar {
-	background-color: #192e4d !important;
-}
-
-.custom-navbar .nav-link,
-.custom-navbar .navbar-brand {
-	color: #f8f9fa !important;
-	font-size: 1.7rem;
-	padding-top: 25px !important;
-	padding-bottom: 25px !important;
-}
-
-.custom-navbar .nav-link:hover {
-	color: #ced4da !important;
-}
-
-.navbar-logo {
-	height: 45px;
-	width: auto;
+  position: sticky;
+  top: 0;
+  z-index: 1030; /* Bootstrap’s navbar default z-index is 1030 */
+  background-color: #1A2D4D;
+  /* Optional: add box shadow or border to distinguish from content */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

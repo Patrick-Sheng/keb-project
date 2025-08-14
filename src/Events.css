@@ -1,11 +1,14 @@
-.event-text-paragraph {
-	font-size: 30px;
-}
-
-.event-text-title {
-	font-size: 50px;
-}
-
 .card-img {
 	width: 100%;
+}
+
+.event-box {
+	width: '420px';
+	height: '420px';
+	object-Fit: 'fill';
+	margin-bottom:3vh;
+}
+
+.breadcrumb a {
+	text-decoration: none;
 }

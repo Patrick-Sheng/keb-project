@@ -39,33 +39,6 @@ const Events = () => {
 					)}
 				</Row>
 			</Container>
-						<div className="third-background text-white">
-				<Container>
-					<Row>
-						<Col
-							xs={4}
-							className="pt-5 text-center"
-						>
-							{' '}
-							<h1> instagram </h1>{' '}
-						</Col>
-						<Col
-							xs={4}
-							className="pt-5 text-center"
-						>
-							{' '}
-							<h1> instagram </h1>{' '}
-						</Col>
-						<Col
-							xs={4}
-							className="pt-5 text-center"
-						>
-							{' '}
-							<h1> instagram </h1>{' '}
-						</Col>
-					</Row>
-				</Container>
-			</div>
       <Footer></Footer>
 		</>
 	)

@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Footer from "../components/Footer";
 
 //style={{ border: '2px solid black' }}
 
@@ -112,33 +113,7 @@ const Home = () => {
 					</Col>
 				</Row>
 			</Container>
-			<div className="third-background text-white">
-				<Container>
-					<Row>
-						<Col
-							xs={4}
-							className="pt-5 text-center"
-						>
-							{' '}
-							<h1> instagram </h1>{' '}
-						</Col>
-						<Col
-							xs={4}
-							className="pt-5 text-center"
-						>
-							{' '}
-							<h1> instagram </h1>{' '}
-						</Col>
-						<Col
-							xs={4}
-							className="pt-5 text-center"
-						>
-							{' '}
-							<h1> instagram </h1>{' '}
-						</Col>
-					</Row>
-				</Container>
-			</div>
+      <Footer></Footer>
 		</>
 	)
 }

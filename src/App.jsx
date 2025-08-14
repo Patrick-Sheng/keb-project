@@ -1,54 +1,58 @@
-import { Routes, Route, NavLink } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Events from './pages/Events'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import { LinkContainer } from 'react-router-bootstrap'
-import logo from './images/keb_logo.png'
-import './App.css'
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Events from "./pages/Events";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import logo from "./images/KEBlogo_full.png";
 import EventPage from './pages/EventPage'
 
-function App() {
-	return (
-		<div>
-			<Navbar className="custom-navbar">
-				<Container>
-					<LinkContainer to="/">
-						<Navbar.Brand>
-							<img
-								src={logo}
-								height="30"
-								className="d-inline-block align-top navbar-logo me-5"
-								alt="KEB logo"
-							/>{' '}
-						</Navbar.Brand>
-					</LinkContainer>
-					<Nav className="me-auto">
-						<LinkContainer
-							to="/"
-							className="px-3"
-						>
-							<Nav.Link> Home </Nav.Link>
-						</LinkContainer>
-						<LinkContainer
-							to="/events"
-							className="px-3"
-						>
-							<Nav.Link> Events </Nav.Link>
-						</LinkContainer>
-						<LinkContainer
-							to="/about"
-							className="px-3"
-						>
-							<Nav.Link> About </Nav.Link>
-						</LinkContainer>
-					</Nav>
-				</Container>
-			</Navbar>
-			<Routes>
+export default function App() {
+  return (
+    <div className="app-container">
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+        <div className="container">
+          <Link className="navbar-brand d-flex align-items-center" to="/">
+            <img
+              src={logo}
+              alt="Club Logo"
+              style={{
+                height: "40px",
+                width: "40px",
+                marginRight: "10px",
+                borderRadius: "50%",
+              }}
+            />
+            Korean Engineering Body
+          </Link>
+
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">About Us</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/events">Events</Link>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="btn btn-primary ms-2"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfdQ4XeScWBXzZ4_1igpsrxI94-xP-f10VRN46iSHfsWJuQnw/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
 				<Route
 					path="/"
 					element={<Home />}
@@ -66,8 +70,6 @@ function App() {
 					element={<EventPage />}
 				/>
 			</Routes>
-		</div>
-	)
+    </div>
+  );
 }
-
-export default App

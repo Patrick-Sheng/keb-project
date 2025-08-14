@@ -21,12 +21,9 @@ const EventPage = () => {
 				paragraph={body}
 				formLink={link}
 			/>
-			<Footer
-				style={{
-					border: '2px solid red',
-					borderRadius: '5px',
-				}}
-			></Footer>
+			<div className="pt-5 mt-2">
+				<Footer></Footer>
+			</div>
 		</>
 	)
 }

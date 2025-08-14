@@ -3,7 +3,7 @@
 }
 
 .mission-text-paragraph {
-	font-size: 20px;
+	font-size: 30px;
 }
 
 .secondary-background {
@@ -12,4 +12,8 @@
 
 .third-background {
 	background-color: #000000;
+}
+
+.forth-background {
+	background-color: #fff;
 }

@@ -1,19 +1,19 @@
 /* App.css */
 .app-container {
-  min-height: 100vh;
-  background: radial-gradient(
-      1200px 600px at 80% -20%,
-      rgba(68, 189, 240, 0.15) 0%,
-      rgba(68, 189, 240, 0) 60%
-    ),
-    #0b1b34;
+	min-height: 100vh;
+	background: radial-gradient(
+			1200px 600px at 80% -20%,
+			rgba(68, 189, 240, 0.15) 0%,
+			rgba(68, 189, 240, 0) 60%
+		),
+		#0b1b34;
 }
 
 .custom-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1030; /* Bootstrap’s navbar default z-index is 1030 */
-  background-color: #1A2D4D;
-  /* Optional: add box shadow or border to distinguish from content */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 1030; /* Bootstrap’s navbar default z-index is 1030 */
+	background-color: #1a2d4d;
+	/* Optional: add box shadow or border to distinguish from content */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

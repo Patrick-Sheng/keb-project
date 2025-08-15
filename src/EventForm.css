@@ -49,3 +49,26 @@
     height:200px;
     border-radius: 25px;
 }
+
+/* default: make breadcrumb text white */
+.event-breadcrumb .breadcrumb-item a,
+.event-breadcrumb .breadcrumb-item.active {
+  color: #ffffff !important;
+}
+
+/* divider between items */
+.event-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* WHEN there is a title, make the first breadcrumb link blue */
+.event-breadcrumb.has-title .breadcrumb-item.events-home a {
+  color: #0d6efd !important; /* Bootstrap primary blue */
+}
+
+/* optional: hover for the Events link */
+.event-breadcrumb.has-title .breadcrumb-item.events-home a:hover,
+.event-breadcrumb .breadcrumb-item.events-home a:hover {
+  color: #0b5ed7 !important;
+}

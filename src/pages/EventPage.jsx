@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import { eventMetadata } from '../util/eventsMetadata'
 import { Breadcrumb } from 'react-bootstrap'
-import Footer from '../components/Footer'
 
 const EventPage = () => {
 	const { eventId } = useParams()
@@ -21,9 +20,6 @@ const EventPage = () => {
 				paragraph={body}
 				formLink={link}
 			/>
-			<div className="pt-5 mt-2">
-				<Footer></Footer>
-			</div>
 		</>
 	)
 }

@@ -6,9 +6,29 @@
 	font-size: 30px;
 }
 
+/* Option 1: Deep Ocean Blue (Recommended) */
 .secondary-background {
-	background-color: #434242;
+	background: linear-gradient(
+		135deg,
+		#1e3a5f 0%,
+		#2c5f7c 100%
+	);
 }
+
+/* Option 2: Teal Gradient (if you prefer) */
+/* .secondary-background {
+	background: linear-gradient(135deg, #1f4e5f 0%, #2d6a7a 100%);
+} */
+
+/* Option 3: Navy Blue Gradient (more conservative) */
+/* .secondary-background {
+	background: linear-gradient(135deg, #1a2b4a 0%, #2d4a6b 100%);
+} */
+
+/* Option 4: Slate Blue (modern look) */
+/* .secondary-background {
+	background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+} */
 
 .third-background {
 	background-color: #000000;

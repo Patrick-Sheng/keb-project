@@ -49,6 +49,45 @@ function EventForm({ image, title, paragraph, formLink }) {
 		site_next_page =
 			'/events/event' + (parseInt(current_page_num) + 1)
 	}
+
+	const navigationStyle = {
+		position: 'relative',
+		width: '100%',
+		maxWidth: '400px',
+		margin: '0 auto',
+	}
+
+	const imageContainerStyle = {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		gap: '1rem',
+		marginBottom: '0.5rem',
+	}
+
+	const navImageStyle = {
+		width: '80px',
+		height: '60px',
+		objectFit: 'cover',
+		borderRadius: '4px',
+		transition: 'transform 0.2s ease',
+		cursor: 'pointer',
+	}
+
+	const labelContainerStyle = {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		gap: '1rem',
+	}
+
+	const labelStyle = {
+		width: '80px',
+		textAlign: 'center',
+		fontSize: '0.875rem',
+		fontWeight: '500',
+	}
+
 	return (
 		<>
 			<Container>
@@ -83,7 +122,7 @@ function EventForm({ image, title, paragraph, formLink }) {
 					>
 						<div className="event-text-block">
 							<div className="event-text-only">
-								<h1 className="fw-bold event-text-title">
+								<h1 className="fw-bold event-text-title pt-5">
 									{title}
 								</h1>
 								<div className="text-box">
@@ -92,54 +131,79 @@ function EventForm({ image, title, paragraph, formLink }) {
 									</p>
 									<a
 										href={formLink}
-										class="btn btn-primary btn-lg"
+										className="btn btn-primary btn-lg"
 									>
 										{' '}
 										Sign Up{' '}
 									</a>
 								</div>
 							</div>
-							<Row>
-								<Col>
-									<div class="bottom-events-background">
-										<div class="bottom-events-images">
-											<Row>
-												<Col>
-													<a href={site_next_page}>
-														<img
-															class="bottom-events-img"
-															src={next_page}
-															href={site_next_page}
-														></img>
-													</a>
-												</Col>
-												<Col>
-													<a href={site_current_page}>
-														<img
-															class="bottom-events-img"
-															src={current_page}
-															href={site_current_page}
-														></img>
-													</a>
-												</Col>
-												<Col>
-													<a href={site_previous_page}>
-														<img
-															class="bottom-events-img"
-															src={previous_page}
-														></img>
-													</a>
-												</Col>
-											</Row>
-											<Row>
-												<Col>Next</Col>
-												<Col>Current</Col>
-												<Col>Previous</Col>
-											</Row>
+
+							{/* Fixed navigation section */}
+							<div className="mt-4 pt-5">
+								<div className="bottom-events-background">
+									<div style={navigationStyle}>
+										{/* Image navigation */}
+										<div style={imageContainerStyle}>
+											<a href={site_previous_page}>
+												<img
+													style={navImageStyle}
+													src={previous_page}
+													alt="Previous event"
+													onMouseEnter={(e) =>
+														(e.target.style.transform =
+															'scale(1.05)')
+													}
+													onMouseLeave={(e) =>
+														(e.target.style.transform =
+															'scale(1)')
+													}
+												/>
+											</a>
+											<a href={site_current_page}>
+												<img
+													style={{
+														...navImageStyle,
+														border: '2px solid #007bff',
+													}}
+													src={current_page}
+													alt="Current event"
+													onMouseEnter={(e) =>
+														(e.target.style.transform =
+															'scale(1.05)')
+													}
+													onMouseLeave={(e) =>
+														(e.target.style.transform =
+															'scale(1)')
+													}
+												/>
+											</a>
+											<a href={site_next_page}>
+												<img
+													style={navImageStyle}
+													src={next_page}
+													alt="Next event"
+													onMouseEnter={(e) =>
+														(e.target.style.transform =
+															'scale(1.05)')
+													}
+													onMouseLeave={(e) =>
+														(e.target.style.transform =
+															'scale(1)')
+													}
+												/>
+											</a>
+										</div>
+
+										{/* Labels */}
+										<div style={labelContainerStyle}>
+											<div style={labelStyle}>Previous</div>
+											<div style={labelStyle}>Current</div>
+											<div style={labelStyle}>Next</div>
 										</div>
 									</div>
-								</Col>
-							</Row>
+								</div>
+							</div>
 						</div>
 					</Col>
 				</Row>

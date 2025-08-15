@@ -52,18 +52,17 @@ function EventForm({ image, title, paragraph, formLink }) {
 	return (
 		<>
 			<Container>
-				<Breadcrumb className="mt-3 fs-5">
-					<Breadcrumb.Item href="/events">
-						Events
-					</Breadcrumb.Item>
-					<Breadcrumb.Item
-						active
-						style={{ color: 'grey' }}
-					>
-						{' '}
-						{title}{' '}
-					</Breadcrumb.Item>
-				</Breadcrumb>
+				<Breadcrumb className={`mt-3 fs-5 event-breadcrumb ${title ? 'has-title' : ''}`}>
+          <Breadcrumb.Item href="/events" className="events-home">
+            Events
+          </Breadcrumb.Item>
+
+          {title && (
+            <Breadcrumb.Item active className="events-title">
+              {title}
+            </Breadcrumb.Item>
+          )}
+        </Breadcrumb>
 				<Row>
 					<Col className="pb-5">
 						<Image

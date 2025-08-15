@@ -125,7 +125,18 @@ function EventForm({ image, title, paragraph, formLink }) {
 							<h1 className="fw-bold event-text-title pt-5">{title}</h1>
 							<div className="text-box">
 								<p className="event-text-paragraph">{paragraph}</p>
-								<a href={formLink} className="btn btn-primary btn-lg mb-4">Sign Up</a>
+                {!isPreviousEvent ? (
+                                        <a
+                                            href={formLink}
+                                            className="btn btn-primary btn-lg"
+                                        >
+                                            Sign Up
+                                        </a>
+                                    ) : (
+                                        <div className="text-muted mt-3">
+                                            <em>This event has already passed</em>
+                                        </div>
+                                    )}
 							</div>
 						</div>
 

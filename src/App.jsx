@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import logo from './images/KEBlogo_full.png'
 import EventPage from './pages/EventPage'
+import Footer from './components/Footer'
 
 export default function App() {
 	return (
@@ -67,26 +68,30 @@ export default function App() {
 				</div>
 			</nav>
 
-			{/* Routes */}
+			{/* Main Content Area */}
+			<main className="main-content">
+				<Routes>
+					<Route
+						path="/"
+						element={<Home />}
+					/>
+					<Route
+						path="/about"
+						element={<About />}
+					/>
+					<Route
+						path="/events"
+						element={<Events />}
+					/>
+					<Route
+						path="/events/:eventId"
+						element={<EventPage />}
+					/>
+				</Routes>
+			</main>
 
-			<Routes>
-				<Route
-					path="/"
-					element={<Home />}
-				/>
-				<Route
-					path="/about"
-					element={<About />}
-				/>
-				<Route
-					path="/events"
-					element={<Events />}
-				/>
-				<Route
-					path="/events/:eventId"
-					element={<EventPage />}
-				/>
-			</Routes>
+			{/* Footer - Now part of main layout */}
+			<Footer />
 		</div>
 	)
 }

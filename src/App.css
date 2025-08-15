@@ -1,6 +1,21 @@
 /* App.css */
+
+/* Reset and base styles for stable footer */
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#root {
+	height: 100%;
+}
+
 .app-container {
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 	background: radial-gradient(
 			1200px 600px at 80% -20%,
 			rgba(68, 189, 240, 0.15) 0%,
@@ -9,11 +24,25 @@
 		#0b1b34;
 }
 
+/* Main content area that grows to push footer down */
+.main-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Navbar styles */
 .custom-navbar {
 	position: sticky;
 	top: 0;
-	z-index: 1030; /* Bootstrap’s navbar default z-index is 1030 */
+	z-index: 1030;
 	background-color: #1a2d4d;
-	/* Optional: add box shadow or border to distinguish from content */
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	flex-shrink: 0; /* Prevent navbar from shrinking */
+}
+
+/* Footer will be positioned at bottom automatically with flexbox */
+footer {
+	margin-top: auto; /* This pushes footer to bottom */
+	flex-shrink: 0; /* Prevent footer from shrinking */
 }

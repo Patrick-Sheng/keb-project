@@ -34,6 +34,13 @@ function EventForm({ image, title, paragraph, formLink }) {
 	const site_current_page = `/events/event${current_page_num}`;
 	const site_next_page = currentIndex === eventImages.length - 1 ? `/events/event${current_page_num}` : `/events/event${currentIndex + 2}`;
 
+	// Determine if this is a previous event
+	// Assuming events 1-5 are previous, 6 is current, 7 is upcoming
+	// Adjust these numbers based on your actual event timeline
+	const CURRENT_EVENT_NUM = 7 // Change this to your actual current event number
+	const isPreviousEvent =
+		parseInt(current_page_num) < CURRENT_EVENT_NUM
+
 	const navigationStyle = {
 		position: 'relative',
 		width: '100%',

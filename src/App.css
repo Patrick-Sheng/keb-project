@@ -16,12 +16,9 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: radial-gradient(
-			1200px 600px at 80% -20%,
-			rgba(68, 189, 240, 0.15) 0%,
-			rgba(68, 189, 240, 0) 60%
-		),
-		#0b1b34;
+
+	/* Static consistent background */
+	background: #0b1b34;
 }
 
 /* Main content area that grows to push footer down */
@@ -38,11 +35,11 @@ body {
 	z-index: 1030;
 	background-color: #1a2d4d;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	flex-shrink: 0; /* Prevent navbar from shrinking */
+	flex-shrink: 0;
 }
 
 /* Footer will be positioned at bottom automatically with flexbox */
 footer {
-	margin-top: auto; /* This pushes footer to bottom */
-	flex-shrink: 0; /* Prevent footer from shrinking */
+	margin-top: auto;
+	flex-shrink: 0;
 }

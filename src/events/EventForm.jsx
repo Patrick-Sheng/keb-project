@@ -50,6 +50,13 @@ function EventForm({ image, title, paragraph, formLink }) {
 			'/events/event' + (parseInt(current_page_num) + 1)
 	}
 
+	// Determine if this is a previous event
+	// Assuming events 1-5 are previous, 6 is current, 7 is upcoming
+	// Adjust these numbers based on your actual event timeline
+	const CURRENT_EVENT_NUM = 7 // Change this to your actual current event number
+	const isPreviousEvent =
+		parseInt(current_page_num) < CURRENT_EVENT_NUM
+
 	const navigationStyle = {
 		position: 'relative',
 		width: '100%',
@@ -91,17 +98,27 @@ function EventForm({ image, title, paragraph, formLink }) {
 	return (
 		<>
 			<Container>
-				<Breadcrumb className={`mt-3 fs-5 event-breadcrumb ${title ? 'has-title' : ''}`}>
-          <Breadcrumb.Item href="/events" className="events-home">
-            Events
-          </Breadcrumb.Item>
+				<Breadcrumb
+					className={`mt-3 fs-5 event-breadcrumb ${
+						title ? 'has-title' : ''
+					}`}
+				>
+					<Breadcrumb.Item
+						href="/events"
+						className="events-home"
+					>
+						Events
+					</Breadcrumb.Item>
 
-          {title && (
-            <Breadcrumb.Item active className="events-title">
-              {title}
-            </Breadcrumb.Item>
-          )}
-        </Breadcrumb>
+					{title && (
+						<Breadcrumb.Item
+							active
+							className="events-title"
+						>
+							{title}
+						</Breadcrumb.Item>
+					)}
+				</Breadcrumb>
 				<Row>
 					<Col className="pb-5">
 						<Image
@@ -129,13 +146,19 @@ function EventForm({ image, title, paragraph, formLink }) {
 									<p className="event-text-paragraph">
 										{paragraph}
 									</p>
-									<a
-										href={formLink}
-										className="btn btn-primary btn-lg"
-									>
-										{' '}
-										Sign Up{' '}
-									</a>
+									{/* Conditional rendering of sign up button */}
+									{!isPreviousEvent ? (
+										<a
+											href={formLink}
+											className="btn btn-primary btn-lg"
+										>
+											Sign Up
+										</a>
+									) : (
+										<div className="text-muted mt-3">
+											<em>This event has already passed</em>
+										</div>
+									)}
 								</div>
 							</div>
 

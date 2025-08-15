@@ -8,47 +8,31 @@ import '../EventForm.css'
 import { useLocation } from 'react-router-dom'
 import { Collapse } from 'bootstrap'
 
+// Imported event images
+import event1 from '../images/event1.png';
+import event2 from '../images/event2.png';
+import event3 from '../images/event3.png';
+import event4 from '../images/event4.png';
+import event5 from '../images/event5.png';
+import event6 from '../images/event6.png';
+import event7 from '../images/event7.png';
+import noEvent from '../images/noEvent.png';
+import noUpcoming from '../images/noUpcoming.png';
+
 function EventForm({ image, title, paragraph, formLink }) {
 	const location = useLocation()
-	const current_page_num = location.pathname
-		.split('/')[2]
-		.split('t')[1]
-	const current_page =
-		'../src/images/event' + current_page_num + '.png'
-	var next_page
-	var previous_page
-	if (current_page_num == 1) {
-		previous_page = '../src/images/noEvent.png'
-	} else {
-		previous_page =
-			'../src/images/event' +
-			(parseInt(current_page_num) - 1) +
-			'.png'
-	}
-	if (current_page_num == 7) {
-		next_page = '../src/images/noUpcoming.png'
-	} else {
-		next_page =
-			'../src/images/event' +
-			(parseInt(current_page_num) + 1) +
-			'.png'
-	}
-	const site_current_page =
-		'/events/event' + current_page_num
-	var site_next_page
-	var site_previous_page
-	if (current_page_num == 1) {
-		site_previous_page = '/events/event' + current_page_num
-	} else {
-		site_previous_page =
-			'/events/event' + (parseInt(current_page_num) - 1)
-	}
-	if (current_page_num == 7) {
-		site_next_page = '/events/event' + current_page_num
-	} else {
-		site_next_page =
-			'/events/event' + (parseInt(current_page_num) + 1)
-	}
+	const current_page_num = parseInt(location.pathname.split('/')[2].split('t')[1]);
+
+	const eventImages = [event1, event2, event3, event4, event5, event6, event7];
+	const currentIndex = current_page_num - 1;
+
+	const previous_page_img = currentIndex === 0 ? noEvent : eventImages[currentIndex - 1];
+	const current_page_img = eventImages[currentIndex];
+	const next_page_img = currentIndex === eventImages.length - 1 ? noUpcoming : eventImages[currentIndex + 1];
+
+	const site_previous_page = currentIndex === 0 ? `/events/event${current_page_num}` : `/events/event${currentIndex}`;
+	const site_current_page = `/events/event${current_page_num}`;
+	const site_next_page = currentIndex === eventImages.length - 1 ? `/events/event${current_page_num}` : `/events/event${currentIndex + 2}`;
 
 	const navigationStyle = {
 		position: 'relative',
@@ -89,126 +73,58 @@ function EventForm({ image, title, paragraph, formLink }) {
 	}
 
 	return (
-		<>
-			<Container>
-				<Breadcrumb className={`mt-3 fs-5 event-breadcrumb ${title ? 'has-title' : ''}`}>
-          <Breadcrumb.Item href="/events" className="events-home">
-            Events
-          </Breadcrumb.Item>
-
-          {title && (
-            <Breadcrumb.Item active className="events-title">
-              {title}
-            </Breadcrumb.Item>
-          )}
-        </Breadcrumb>
-				<Row>
-					<Col className="pb-5">
-						<Image
-							src={image}
-							style={{
-								height: '60vh',
-								objectFit: 'fill',
-							}}
-							className="d-block mx-auto"
-							fluid
-							thumbnail
-						/>
-					</Col>
-					<Col
-						xs={6}
-						md={7}
-						className="text-center pb-5"
-					>
-						<div className="event-text-block">
-							<div className="event-text-only">
-								<h1 className="fw-bold event-text-title pt-5">
-									{title}
-								</h1>
-								<div className="text-box">
-									<p className="event-text-paragraph">
-										{paragraph}
-									</p>
-									<a
-										href={formLink}
-										className="btn btn-primary btn-lg"
-									>
-										{' '}
-										Sign Up{' '}
-									</a>
-								</div>
-							</div>
-
-							{/* Fixed navigation section */}
-							<div className="mt-4 pt-5">
-								<div className="bottom-events-background">
-									<div style={navigationStyle}>
-										{/* Image navigation */}
-										<div style={imageContainerStyle}>
-											<a href={site_previous_page}>
-												<img
-													style={navImageStyle}
-													src={previous_page}
-													alt="Previous event"
-													onMouseEnter={(e) =>
-														(e.target.style.transform =
-															'scale(1.05)')
-													}
-													onMouseLeave={(e) =>
-														(e.target.style.transform =
-															'scale(1)')
-													}
-												/>
-											</a>
-											<a href={site_current_page}>
-												<img
-													style={{
-														...navImageStyle,
-														border: '2px solid #007bff',
-													}}
-													src={current_page}
-													alt="Current event"
-													onMouseEnter={(e) =>
-														(e.target.style.transform =
-															'scale(1.05)')
-													}
-													onMouseLeave={(e) =>
-														(e.target.style.transform =
-															'scale(1)')
-													}
-												/>
-											</a>
-											<a href={site_next_page}>
-												<img
-													style={navImageStyle}
-													src={next_page}
-													alt="Next event"
-													onMouseEnter={(e) =>
-														(e.target.style.transform =
-															'scale(1.05)')
-													}
-													onMouseLeave={(e) =>
-														(e.target.style.transform =
-															'scale(1)')
-													}
-												/>
-											</a>
-										</div>
-
-										{/* Labels */}
-										<div style={labelContainerStyle}>
-											<div style={labelStyle}>Previous</div>
-											<div style={labelStyle}>Current</div>
-											<div style={labelStyle}>Next</div>
-										</div>
-									</div>
-								</div>
+		<Container>
+			<Breadcrumb className={`mt-3 fs-5 event-breadcrumb ${title ? 'has-title' : ''}`}>
+				<Breadcrumb.Item href="/events" className="events-home">Events</Breadcrumb.Item>
+				{title && <Breadcrumb.Item active className="events-title">{title}</Breadcrumb.Item>}
+			</Breadcrumb>
+			<Row>
+				<Col className="pb-5">
+					<Image
+						src={image}
+						style={{ height: '60vh', objectFit: 'fill' }}
+						className="d-block mx-auto"
+						fluid
+						thumbnail
+					/>
+				</Col>
+				<Col xs={6} md={7} className="text-center pb-5">
+					<div className="event-text-block">
+						<div className="event-text-only">
+							<h1 className="fw-bold event-text-title pt-5">{title}</h1>
+							<div className="text-box">
+								<p className="event-text-paragraph">{paragraph}</p>
+								<a href={formLink} className="btn btn-primary btn-lg mb-4">Sign Up</a>
 							</div>
 						</div>
-					</Col>
-				</Row>
-			</Container>
-		</>
+
+						{/* Fixed navigation section */}
+            <div className="mt-4 pt-5">
+              <div className="bottom-events-background">
+                <div style={navigationStyle}>
+                  <div style={imageContainerStyle}>
+                    <a href={site_previous_page}>
+                      <img style={navImageStyle} src={previous_page_img} alt="Previous event" />
+                    </a>
+                    <a href={site_current_page}>
+                      <img style={{ ...navImageStyle, border: '2px solid #007bff' }} src={current_page_img} alt="Current event" />
+                    </a>
+                    <a href={site_next_page}>
+                      <img style={navImageStyle} src={next_page_img} alt="Next event" />
+                    </a>
+                  </div>
+                  <div style={labelContainerStyle}>
+                    <div style={labelStyle}>Previous</div>
+                    <div style={labelStyle}>Current</div>
+                    <div style={labelStyle}>Next</div>
+                  </div>
+                </div>
+              </div>
+              </div>
+					</div>
+				</Col>
+			</Row>
+		</Container>
 	)
 }
 

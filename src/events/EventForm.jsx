@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import '../Events.css'
 import { Breadcrumb } from 'react-bootstrap'
 import '../EventForm.css'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { Collapse } from 'bootstrap'
 
 // Imported event images
@@ -99,28 +99,28 @@ function EventForm({ image, title, paragraph, formLink }) {
 						</div>
 
 						{/* Fixed navigation section */}
-            <div className="mt-4 pt-5">
-              <div className="bottom-events-background">
-                <div style={navigationStyle}>
-                  <div style={imageContainerStyle}>
-                    <a href={site_previous_page}>
-                      <img style={navImageStyle} src={previous_page_img} alt="Previous event" />
-                    </a>
-                    <a href={site_current_page}>
-                      <img style={{ ...navImageStyle, border: '2px solid #007bff' }} src={current_page_img} alt="Current event" />
-                    </a>
-                    <a href={site_next_page}>
-                      <img style={navImageStyle} src={next_page_img} alt="Next event" />
-                    </a>
-                  </div>
-                  <div style={labelContainerStyle}>
-                    <div style={labelStyle}>Previous</div>
-                    <div style={labelStyle}>Current</div>
-                    <div style={labelStyle}>Next</div>
-                  </div>
-                </div>
-              </div>
-              </div>
+						<div className="mt-4 pt-5">
+							<div className="bottom-events-background">
+								<div style={navigationStyle}>
+									<div style={imageContainerStyle}>
+										<Link to={site_previous_page}>
+											<img style={navImageStyle} src={previous_page_img} alt="Previous event" />
+										</Link>
+										<Link to={site_current_page}>
+											<img style={{ ...navImageStyle, border: '2px solid #007bff' }} src={current_page_img} alt="Current event" />
+										</Link>
+										<Link to={site_next_page}>
+											<img style={navImageStyle} src={next_page_img} alt="Next event" />
+										</Link>
+									</div>
+									<div style={labelContainerStyle}>
+										<div style={labelStyle}>Previous</div>
+										<div style={labelStyle}>Current</div>
+										<div style={labelStyle}>Next</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</Col>
 			</Row>

@@ -10,11 +10,8 @@ const Events = () => {
 	return (
 		<>
 			<Container>
-				<Breadcrumb className="mt-3 fs-5">
-					<Breadcrumb.Item
-						active
-						style={{ color: 'grey' }}
-					>
+				<Breadcrumb className="mt-3 fs-5 event-breadcrumb">
+					<Breadcrumb.Item as={Link} to="/events" className="events-home">
 						Events
 					</Breadcrumb.Item>
 				</Breadcrumb>

@@ -64,7 +64,7 @@ const Events = () => {
 						>
 							Previous Events
 						</h2>
-						<Row>
+						<Row className="mb-5 pt-3">
 							{previousEvents.map(([key, value]) => {
 								return (
 									<Col

@@ -82,7 +82,19 @@ function EventForm({ image, title, paragraph, formLink }) {
 						style={{ 
 							textDecoration: 'none', 
 							color: 'inherit',
-							cursor: 'pointer'
+							cursor: 'pointer',
+							transition: 'all 0.3s ease',
+							display: 'inline-block'
+						}}
+						onMouseEnter={(e) => {
+							e.target.style.color = '#0d6efd';
+							e.target.style.textDecoration = 'underline';
+							e.target.style.transform = 'translateY(-2px)';
+						}}
+						onMouseLeave={(e) => {
+							e.target.style.color = 'inherit';
+							e.target.style.textDecoration = 'none';
+							e.target.style.transform = 'translateY(0)';
 						}}
 					>
 						Events
